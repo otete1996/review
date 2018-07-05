@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <% if @post.score==nil %>
+      <p><%= @post.context %></p>
+      <% elsif @post.score>0 %>
+      <p class="redtext"><%=@post.context %></p>
+      <% else %>
+      <p class="bluetext"><%= @post.context %></p>
+      <% end %>
+      <%=link_to("分析","/posts",class: "btn btn-info") %>
+    </div>
+  </div>
+</div>
