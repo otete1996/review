@@ -1,28 +1,53 @@
-<table class="table table-bordered table-hover">
-  <thead>
-    <tr>
-      <th scope="col">context</th>
-      <th scope="col">score</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @posts.each do |post| %>
-    <% if post.score==nil %>
-    <tr class="table-info">
-      <td scope="row"><%= link_to(post.context,"/posts/#{post.id}") %></td>
-      <td scope="row"><%=post.score %></td>
-    </tr>
-    <% elsif post.score>0 %>
-    <tr class="table-info red">
-      <td scope="row"><%= link_to(post.context,"/posts/#{post.id}") %></td>
-      <td scope="row"><%=post.score %></td>
-    </tr>
-    <% else %>
-    <tr class="table-info blue">
-      <td scope="row"> <%= link_to(post.context,"/posts/#{post.id}") %></td>
-      <td scope="row"><%=post.score %></td>
-    <% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h1>良いまたは評価なしのレビュー</h1>
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <th scope="col">context</th>
+            <th scope="col">score</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @posts.each do |post| %>
+          <% if post.score==nil %>
+          <tr class="table-info">
+            <td scope="row"><%= link_to(post.context,"/posts/#{post.id}") %></td>
+            <td scope="row"><%=post.score %></td>
+          </tr>
+          <% elsif post.score>0 %>
+          <tr class="table-info red">
+            <td scope="row"><%= link_to(post.context,"/posts/#{post.id}") %></td>
+            <td scope="row"><%=post.score %></td>
+          </tr>
+          <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-6">
+      <h1>悪いレビュー</h1>
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <th scope="col">context</th>
+            <th scope="col">score</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @posts.each do |post| %>
+          <% if post.score!=nil and post.score<=0 %>
+          <tr class="table-info blue">
+            <td scope="row"> <%= link_to(post.context,"/posts/#{post.id}") %></td>
+            <td scope="row"><%=post.score %></td>
+          </tr>
+          <% end %>
 
-    <% end %>
-  </tbody>
-</table>
+          <% end %>
+        </tbody>
+
+      </table>
+    </div>
+  </div>
+</div>
