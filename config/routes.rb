@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
 
-
+  post "fileuploads/create"
   get 'posts/new'
 
   get 'posts/create'
 
   get 'reviews/new'
+
+  get "fileuploads/new"
 
   resources :posts
   resources :fileuploads, only: [:index,:create,:new]
