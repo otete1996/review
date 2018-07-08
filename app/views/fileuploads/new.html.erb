@@ -1,5 +1,5 @@
 <%= form_tag "/fileuploads/create",method: "post",multipart: true do %>
-<label>ファイル</label>
+<label>jsonファイル取り込み</label>
 <%= file_field_tag :file %>
 <%= submit_tag "送信" %>
 <% end %>

@@ -5,7 +5,10 @@ class PostsController < ApplicationController
 
   def create
     @post=Post.new(post_params)
-    @post.save
+    if @post.save
+      redirect_to("/posts/index")
+    else
+      render :new
   end
 
   def index

@@ -9,10 +9,12 @@ class FileuploadsController < ApplicationController
     result=JSON.parse(json)
     result.each_value do |value|
       post=Post.new(context: value)
-      post.save
+       post.save
+
 
 
     end
+    redirect_to("/posts/index")
 
   end
 
