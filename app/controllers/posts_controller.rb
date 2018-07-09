@@ -9,7 +9,9 @@ class PostsController < ApplicationController
       redirect_to("/posts/index")
     else
       render :new
+    end
   end
+
 
   def index
     @posts=Post.all

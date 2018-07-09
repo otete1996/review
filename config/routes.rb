@@ -2,8 +2,9 @@ Rails.application.routes.draw do
 
   post "fileuploads/create"
   get 'posts/new'
-
+  post "fileuploads/index/:id"=>"fileuploads#index"
   get 'posts/create'
+  get "posts/show/:id"=>"posts#show"
 
   get 'reviews/new'
 

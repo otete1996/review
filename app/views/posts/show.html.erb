@@ -8,7 +8,7 @@
       <% else %>
       <p class="bluetext"><%= @post.context %></p>
       <% end %>
-      <%=link_to("分析","/posts",class: "btn btn-info") %>
+      <%=link_to("分析","/fileuploads/index/#{@post.id}",class: "btn btn-info",method: :post) %>
     </div>
   </div>
 </div>
